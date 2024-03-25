@@ -1,24 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Open Sans", sans-serif;
 
-}    
-
-body{
-    background-color: #999;
 }
 
-h1{
+body {
+
+    background-color: #eee;
+
+}
+
+h1 {
     font-size: 1.6rem;
     text-align: center;
     color: white;
     font-weight: 300;
-    
-} 
+
+}
 
 h1 span {
     font-weight: 700;
@@ -27,9 +29,23 @@ h1 span {
 
 
 .header {
- padding: 4vh;
- background-image: linear-gradient(to right, #277639, #8BC448 ); 
-}  
+    
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2vh;
+    background-image: linear-gradient(to right, #277639, #8BC448);
+}
+
+.logo {
+    margin-bottom: .3rem;
+    align-self: center;
+    justify-self: center;
+    padding-right: 1rem; 
+    width: 25%;
+    
+}
 
 
 /* card  de login para pc */
@@ -38,83 +54,131 @@ h1 span {
         padding: .5rem;
         display: flex;
         align-self: left;
-        justify-content: center; 
-        margin-top: 18vh; 
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4), 80%, rgba(0, 0, 0, 0.5)), url('/capitulo/assets/image/banner\ ci21\(1\).jpg'); 
-        background-size:auto;
-        background-position: right;
-        
-    }  
+        justify-content: center;
+        margin-top: 13vh;
+        background-size: cover;
+    }
 }
 
 
 /* card de login para mobile */
 @media screen and (max-width: 767px) {
     .card-login {
-
         display: flex;
         align-self: center;
-        justify-content: center; 
-        margin-top: 10vh; 
-         
-    }  
+        justify-content: center;
+        margin-top: 10vh;
+    }
 }
 
 /* card de login para tablet */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .card-login {
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        margin-top: 10vh;
 
+    }
 }
 
 
 /* formulario de login para mobile */
 @media screen and (max-width: 767px) {
-    .form-login{
-        display: grid;   
+    .form-login {
+        display: grid;
         background-image: linear-gradient(to top);
-        background-color: #eee; 
-        padding: 4rem; 
-        border-radius: 1rem; 
-        margin: 2rem; 
-        background-color: none;
-    } 
-} 
+        background-color: #eee;
+        padding: 4rem;
+        border-radius: 1rem;
+        margin: 2rem;
+
+    }
+}
 
 /* formulario de login para tablet */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .form-login{
-        display: grid;   
+    .form-login {
+        display: grid;
         background-image: linear-gradient(to top);
-        background-color: #eee; 
-        padding: 6rem; 
-        border-radius: 1.8rem; 
-        margin: 2.5rem; 
-        background-color: none;
-    } 
+        background-color: #eee;
+        padding: 7rem;
+        border-radius: 1.8rem;
+        margin: 2.5rem;
+
+    }
 }
 
 /* formulario de login para notebook */
 @media screen and (min-width: 1024px) {
-    .form-login{
-        display: grid;   
+    .form-login {
+        display: grid;
         background-image: linear-gradient(to top);
-        background-color: #eee; 
-        padding: 6rem; 
-        border-radius: 1.8rem; 
-        margin: 2.5rem; 
-        background-color: none;
-    }     
-} 
+        background-color: #eee;
+        padding: 5rem;
+        margin: 2rem;
+        background-image: linear-gradient(65deg, #164e23d2, 10%, #8BC448);
+        border-radius: .8rem;
+    }
 
+    .input {
+        margin-bottom: .8rem;
+        padding: .5rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+        border-radius: .5rem;
+        color: white;
+        border: none;
+        text-align: center;
+        font-weight: 600;
+        background-color: #eeeeee9d;
+    }
 
+    .input::placeholder {
+        font-weight: 400;
+        color: #333;
+        text-align: center; 
+        
+    } 
 
+    .fa-envelope {
+        color: #333; 
+        margin-top: -2.4rem;
+        margin-left: .6rem;
+    } 
 
-.input {
-    margin-bottom: .5rem; 
-    padding: .3rem; 
-    padding-left: 5rem;
-    padding-right: 5rem;
-    border-radius: .3rem;
-    border: solid 2px white; 
+    .fa-lock{
+        color: #333; 
+        margin-top: -2.4rem;
+        margin-left: .6rem;
+    } 
 
-} 
-
+    .input-sub{
+        
+        margin-top: .6rem;
+        padding: .5rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+        border-radius: .5rem;
+        border: none;
+        text-align: center;
+        font-weight: 600; 
+        color: #eee;
+        background-color: green;  
+    }
+    
+    .input-sub:hover{
+        
+        margin-top: .6rem;
+        padding: .5rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+        border-radius: .5rem;
+        border: none;
+        text-align: center;
+        font-weight: 600; 
+        color: #eee;
+        background-color: rgb(1, 68, 1);   
+        transition: all ease-in-out .4s;
+    }
+}
