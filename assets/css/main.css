@@ -65,15 +65,48 @@ h1 span {
 
 }
 
-.form-login{
-    display: grid;   
-    background-image: linear-gradient(to top);
-    background-color: #eee; 
-    padding: 6rem; 
-    border-radius: 1.8rem; 
-    margin: 2.5rem; 
-    background-color: ;
+
+/* formulario de login para mobile */
+@media screen and (max-width: 767px) {
+    .form-login{
+        display: grid;   
+        background-image: linear-gradient(to top);
+        background-color: #eee; 
+        padding: 4rem; 
+        border-radius: 1rem; 
+        margin: 2rem; 
+        background-color: none;
+    } 
 } 
+
+/* formulario de login para tablet */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .form-login{
+        display: grid;   
+        background-image: linear-gradient(to top);
+        background-color: #eee; 
+        padding: 6rem; 
+        border-radius: 1.8rem; 
+        margin: 2.5rem; 
+        background-color: none;
+    } 
+}
+
+/* formulario de login para notebook */
+@media screen and (min-width: 1024px) {
+    .form-login{
+        display: grid;   
+        background-image: linear-gradient(to top);
+        background-color: #eee; 
+        padding: 6rem; 
+        border-radius: 1.8rem; 
+        margin: 2.5rem; 
+        background-color: none;
+    }     
+} 
+
+
+
 
 .input {
     margin-bottom: .5rem; 
