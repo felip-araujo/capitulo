@@ -29,7 +29,7 @@ h1 span {
 
 
 .header {
-    
+
     display: grid;
     align-items: center;
     justify-content: center;
@@ -42,9 +42,9 @@ h1 span {
     margin-bottom: .3rem;
     align-self: center;
     justify-self: center;
-    padding-right: 1rem; 
+    padding-right: 1rem;
     width: 25%;
-    
+
 }
 
 
@@ -115,7 +115,7 @@ h1 span {
         display: grid;
         background-image: linear-gradient(to top);
         background-color: #eee;
-        padding: 5rem;
+        padding: 4rem;
         margin: 2rem;
         background-image: linear-gradient(65deg, #164e23d2, 10%, #8BC448);
         border-radius: .8rem;
@@ -137,38 +137,31 @@ h1 span {
     .input::placeholder {
         font-weight: 400;
         color: #333;
-        text-align: center; 
-        
-    } 
+        text-align: center;
+
+    }
 
     .fa-envelope {
-        color: #333; 
+        color: #164e23d2;
         margin-top: -2.4rem;
         margin-left: .6rem;
-    } 
-
-    .fa-lock{
-        color: #333; 
-        margin-top: -2.4rem;
-        margin-left: .6rem;
-    } 
-
-    .input-sub{
-        
-        margin-top: .6rem;
-        padding: .5rem;
-        padding-left: 5rem;
-        padding-right: 5rem;
-        border-radius: .5rem;
-        border: none;
-        text-align: center;
-        font-weight: 600; 
-        color: #eee;
-        background-color: green;  
     }
-    
-    .input-sub:hover{
-        
+
+    .fa-lock {
+        color: #164e23d2;
+        margin-top: -2.4rem;
+        margin-left: .6rem;
+    } 
+
+    .fa-eye{
+        color: #164e23d2;
+        margin-top: -2.4rem;
+        margin-right: .5rem;
+        text-align: right;
+    }
+
+    .input-sub {
+
         margin-top: .6rem;
         padding: .5rem;
         padding-left: 5rem;
@@ -176,9 +169,37 @@ h1 span {
         border-radius: .5rem;
         border: none;
         text-align: center;
-        font-weight: 600; 
+        font-weight: 600;
         color: #eee;
-        background-color: rgb(1, 68, 1);   
+        background-color: green;
+    }
+
+    .input-sub:hover {
+
+        margin-top: .6rem;
+        padding: .5rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+        border-radius: .5rem;
+        border: none;
+        text-align: center;
+        font-weight: 600;
+        color: #eee;
+        background-color: rgb(1, 68, 1);
         transition: all ease-in-out .4s;
+    }
+
+    .label {
+        font-size:  1rem;
+        text-align: left;
+        color: white; 
+        font-weight: 200; 
+        margin-left: 0rem; 
+        border: solid white 1px ;  
+        border-bottom: none;
+        border-top: none; 
+        border-right: none;
+        padding-left: .5rem; 
+        margin-bottom: .3rem;
     }
 }
