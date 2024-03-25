@@ -40,7 +40,7 @@ h1 span {
     align-self: left;
     justify-content: center; 
     margin-top: 18vh; 
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4), 80%, rgba(0, 0, 0, 0.5)), url('/assets/image/banner\ ci21\(1\).jpg'); 
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4), 80%, rgba(0, 0, 0, 0.5)), url('/capitulo/assets/image/banner\ ci21\(1\).jpg'); 
     background-size:auto;
     background-position: right; 
 
