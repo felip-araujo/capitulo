@@ -10,7 +10,7 @@
 }    
 
 body{
-    background-color: #1e1e1e;
+    background-color: #999;
 }
 
 h1{
@@ -35,10 +35,17 @@ h1 span {
 
 .card-login {
     
+    padding: .5rem;
     display: flex;
-    align-self: center;
+    align-self: left;
     justify-content: center; 
-    margin-top: 20vh;
+    margin-top: 18vh; 
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4), 80%, rgba(0, 0, 0, 0.5)), url('/assets/image/banner\ ci21\(1\).jpg'); 
+    background-size:auto;
+    background-position: right; 
+
+    
+
     
 } 
 
@@ -47,7 +54,9 @@ h1 span {
     background-image: linear-gradient(to top);
     background-color: #eee; 
     padding: 6rem; 
-    border-radius: 1.8rem;
+    border-radius: 1.8rem; 
+    margin: 2.5rem; 
+    background-color: ;
 } 
 
 .input {
