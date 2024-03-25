@@ -127,17 +127,21 @@ h1 span {
         padding-left: 5rem;
         padding-right: 5rem;
         border-radius: .5rem;
-        color: white;
+        color: black;
         border: none;
-        text-align: center;
-        font-weight: 600;
+        text-align: left;
+        font-weight: 400; 
+        font-size: .9rem; 
         background-color: #eeeeee9d;
     }
 
     .input::placeholder {
         font-weight: 400;
-        color: #333;
-        text-align: center;
+        color: #33333383;
+        text-align: left; 
+        
+        
+        
 
     }
 
@@ -161,7 +165,7 @@ h1 span {
     }
 
     .input-sub {
-        
+
         margin-top: .6rem;
         padding: .5rem;
         padding-left: 5rem;
@@ -198,8 +202,9 @@ h1 span {
         border: solid white 1px ;  
         border-bottom: none;
         border-top: none; 
-        border-right: none;
+        border-right: none; 
         padding-left: .5rem; 
-        margin-bottom: .3rem;
+        margin-bottom: .3rem; 
+        
     }
 }
