@@ -3,6 +3,7 @@
 // Iniciar a sessão
 session_start(); 
 
+
 // Verificar se o usuário está autenticado
 if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
     // Se não estiver autenticado, redirecionar para a página de login
