@@ -70,4 +70,12 @@ h1 span {
     width: 25%; 
     font-weight: 500;
     text-transform: uppercase;
+} 
+
+.fa-arrow-right-from-bracket {
+    margin-top: -5rem;
+    content: icon;
+    
+    
+    
 }
