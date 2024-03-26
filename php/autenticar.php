@@ -21,7 +21,7 @@ if(isset($_POST['enviar'])) {
         exit;
     } else {
         // Exibir mensagem de erro
-        echo "<script>alert('Combinação incorreta')</script>"; 
+        echo "<script>alert('E-mail ou Senha Incorretos')</script>"; 
         echo "<script>window.location.href = '../index.html';</script>";
     }
 }
