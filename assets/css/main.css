@@ -38,13 +38,13 @@ h1 span {
 } 
 
 .header2 {
-    display: grid;
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 1vh; 
     background-image: linear-gradient(to right, #277639, #8BC448);  
-    margin-bottom: -2rem;
+    margin-bottom: -3rem;
 }
 
 .logo {
@@ -91,16 +91,6 @@ h1 span {
     border: none; 
 } 
 
-@media screen and (min-width: 1023px) {
-    .fa-arrow-right-from-bracket {
-        position: absolute; 
-        margin-top: -38rem; 
-        margin-left: 70rem; 
-        
-        color: white;
-    } 
-}
-
 .btn.btn-primary.mb-4{
     background-image: linear-gradient(65deg, #27763af5, #8ac448e5);  
     text-transform: capitalize; 
@@ -131,5 +121,9 @@ h1 span {
     padding: 3rem; 
     margin-top: 1rem;  
     text-align: center;
-
+} 
+ 
+.log{
+    color: white; 
+    margin-left: 5rem;
 }

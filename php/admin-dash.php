@@ -1,16 +1,18 @@
 <?php
 
 // Iniciar a sessão
-session_start();
-
+session_start(); 
+require_once 'conexao.php';
 
 // Verificar se o usuário está autenticado
 if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
-    // Se não estiver autenticado, redirecionar para a página de login 
+    // Se não estiver autenticado, redirecionar para a página de login
     echo "<script>alert('Usuário não autenticado!')</script>";
     echo "<script>window.location.href = '../index.html';</script>";
     exit;
-}
+} 
+
+
 
 ?>
 
@@ -28,7 +30,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
 <body>
     <div class="header2">
 
-        <h1 class="h3">Bem-vindo ao Capítulo Inspetorial 2024</h1>  
+        <h1 class="h3">Admin4</h1>  
         <a class="log" href="logout.php">Sair</a>
         
         
