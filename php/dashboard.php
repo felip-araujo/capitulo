@@ -28,10 +28,8 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
 <body>
     <div class="header2">
 
-        <h1 class="h3">Bem-vindo ao Capítulo Inspetorial 2024</h1>  
+        <h1 class="h3">Capítulo Inspetorial 2024</h1>  
         <a class="log" href="logout.php">Sair</a>
-        
-        
     </div>
 
 

@@ -1,7 +1,7 @@
 <?php
 
 // Iniciar a sessão
-session_start(); 
+session_start();
 require_once 'conexao.php';
 
 // Verificar se o usuário está autenticado
@@ -10,7 +10,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
     echo "<script>alert('Usuário não autenticado!')</script>";
     echo "<script>window.location.href = '../index.html';</script>";
     exit;
-} 
+}
 
 
 
@@ -30,15 +30,22 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
 <body>
     <div class="header2">
 
-        <h1 class="h3">Admin4</h1>  
+        <h1 class="h3">Painel Administrativo</h1>
         <a class="log" href="logout.php">Sair</a>
-        
-        
-    </div>
 
+    </div>
 
     <div class="row mt-5">
         <div class="col-md-6">
+            <div class="area"> 
+                <?= include 'upload.php' ?>
+                <!-- <div class="upload"> <a href="upload.php">
+                        <i class="fa-solid fa-upload"><p>Adicionar novos arquivos</p></i> 
+                    </a></div> -->
+                <div class="upload"> <a href="">
+                        <i class="fa-solid fa-delete-left"><p>Deletar Arquivos</p></i>
+                    </a></div>
+            </div>
             <div class="area">
                 <h2 class="h3">Fotos</h2>
                 <p class="p">Acompanhe as Fotos do Capítulo Inspetorial</p>
@@ -70,7 +77,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
             </div>
         </div>
     </div>
-    
+
 
 
 
