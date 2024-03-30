@@ -17,7 +17,7 @@
             <label class="form-label" for="imagens">Upload de Imagens (JPEG):</label>
             <input class="form-control" type="file" name="imagens[]" id="imagens" accept="image/jpeg" multiple><br><br>
             <label class="form-label" for="pdf">Upload de PDF:</label>
-            <input type="file" class="form-control" name="pdf" accept="application/pdf"><br><br>
+            <input type="file" class="form-control" name="pdf" accept="application/pdf" enctype="multipart/form-data"><br><br>
             <input type="submit" value="Enviar Arquivos" class="btn btn-primary">
         </form>
     </div>
