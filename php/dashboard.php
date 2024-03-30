@@ -28,7 +28,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
 <body>
     <div class="header2">
 
-        <h1 class="h3">Capítulo Inspetorial 2024</h1>  
+        <h1 class="h3">Capítulo Inspetorial 2024</h1>
         <a class="log" href="logout.php">Sair</a>
     </div>
 
@@ -45,9 +45,13 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
                 foreach ($arquivos as $arquivo) {
                     if ($arquivo != '.' && $arquivo != '..' && pathinfo($arquivo, PATHINFO_EXTENSION) == 'jpg') {
                         echo '<img src="' . $diretorio_destino . $arquivo . '" alt="' . $arquivo . '" class="img-thumbnail mb-3">';
+                        echo '<a href="' . $diretorio_destino . $arquivo . '" download>';
+                        echo '<i class="fas fa-download"></i>';
+                        echo '</a>';
                     }
                 }
                 ?>
+
             </div>
         </div>
 
@@ -66,7 +70,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
             </div>
         </div>
     </div>
-    
+
 
 
 
