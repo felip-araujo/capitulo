@@ -15,7 +15,8 @@ $usuario = $qr->fetch(PDO::FETCH_ASSOC);
 
 
 if ($email === 'admin@isma.org.br' && $usuario && $usuario['senha'] === $senha ) {
-    $_SESSION['autenticado'] = true;
+    $_SESSION['autenticado'] = true; 
+    $_SESSION['nivel_acesso'] = 'admin';
     header('Location: admin-dash.php');
 } else {
     if ($usuario && $usuario['senha'] === $senha) {

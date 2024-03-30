@@ -37,7 +37,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
         <div class="col-md-6">
             <div class="area">
                 <h2 class="h3">Fotos</h2>
-                <p class="p">Acompanhe as Fotos do Capítulo Inspetorial</p>
+                <p class="p">Acompanhe as Fotos do Capítulo</p>
                 <?php
                 // Listar todos os arquivos JPG no diretório de destino
                 $diretorio_destino = '../files/';

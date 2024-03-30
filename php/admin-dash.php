@@ -38,13 +38,11 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
     <div class="row mt-5">
         <div class="col-md-6">
             <div class="area"> 
-                <?= include 'upload.php' ?>
+                <?= include 'upload.php'; include 'processar_upload.php' ?>
                 <!-- <div class="upload"> <a href="upload.php">
                         <i class="fa-solid fa-upload"><p>Adicionar novos arquivos</p></i> 
                     </a></div> -->
-                <div class="upload"> <a href="">
-                        <i class="fa-solid fa-delete-left"><p>Deletar Arquivos</p></i>
-                    </a></div>
+                <?= include 'delete.php'?>
             </div>
             <div class="area">
                 <h2 class="h3">Fotos</h2>

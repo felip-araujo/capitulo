@@ -1,29 +1,33 @@
 <?php
 $diretorio_destino = '../files/'; // Diretório de destino dos uploads
 
-// Processar upload de imagem
-if(isset($_FILES['imagem'])) {
-    $imagem_nome = $_FILES['imagem']['name'];
-    $imagem_tmp = $_FILES['imagem']['tmp_name'];
-    $imagem_destino = $diretorio_destino . $imagem_nome;
+// Processar upload de imagens
+if(isset($_FILES['imagens'])) {
+    foreach ($_FILES['imagens']['tmp_name'] as $key => $tmp_name) {
+        $imagem_nome = $_FILES['imagens']['name'][$key];
+        $imagem_tmp = $_FILES['imagens']['tmp_name'][$key];
+        $imagem_destino = $diretorio_destino . $imagem_nome;
 
-    if(move_uploaded_file($imagem_tmp, $imagem_destino)) {
-        echo 'Imagem enviada com sucesso!';
-    } else {
-        echo 'Erro ao enviar imagem. Verifique as permissões do diretório de destino.';
+        if(move_uploaded_file($imagem_tmp, $imagem_destino)) {
+            echo "Imagem '$imagem_nome' enviada com sucesso!<br>";
+        } else {
+            echo "Erro ao enviar imagem '$imagem_nome'. Verifique as permissões do diretório de destino.<br>";
+        }
     }
 }
 
-// Processar upload de PDF
+// Processar upload de PDFs
 if(isset($_FILES['pdf'])) {
-    $pdf_nome = $_FILES['pdf']['name'];
-    $pdf_tmp = $_FILES['pdf']['tmp_name'];
-    $pdf_destino = $diretorio_destino . $pdf_nome;
+    foreach ($_FILES['pdf']['tmp_name'] as $key => $tmp_name) {
+        $pdf_nome = $_FILES['pdf']['name'][$key];
+        $pdf_tmp = $_FILES['pdf']['tmp_name'][$key];
+        $pdf_destino = $diretorio_destino . $pdf_nome;
 
-    if(move_uploaded_file($pdf_tmp, $pdf_destino)) {
-        echo 'PDF enviado com sucesso!';
-    } else {
-        echo 'Erro ao enviar PDF. Verifique as permissões do diretório de destino.';
+        if(move_uploaded_file($pdf_tmp, $pdf_destino)) {
+            echo "PDF '$pdf_nome' enviado com sucesso!<br>";
+        } else {
+            echo "Erro ao enviar PDF '$pdf_nome'. Verifique as permissões do diretório de destino.<br>";
+        }
     }
 }
 ?>

@@ -131,11 +131,6 @@ h1 span {
     padding: .2rem;
 } 
 
-.upload{
-    /* display: contents; 
-    align-items: center;
-    justify-content: center; */
-} 
 
 .fa-solid.fa-delete-left, .fa-solid.fa-upload {
     color: #eee;
@@ -146,7 +141,7 @@ h1 span {
     margin-left: .5rem;
 } 
 
-.fas.fa-download{
+.fas.fa-download {
     background-color: #77777760; 
     padding: .5rem; 
     border-radius: 1rem;  
