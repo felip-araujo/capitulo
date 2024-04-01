@@ -36,8 +36,8 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
     <div class="row mt-5">
         <div class="col-md-6">
             <div class="area">
-                <h2 class="h3">Fotos</h2>
-                <p class="p">Acompanhe as Fotos do Capítulo</p>
+                <h2 class="h3">Imagens</h2>
+                <p class="p">Acompanhe ou baixe das Fotos do Capítulo Inspetorial</p>
                 <?php
                 // Listar todos os arquivos JPG no diretório de destino
                 $diretorio_destino = '../files/';
@@ -58,7 +58,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
         <div class="col-md-6">
             <div class="area">
                 <h2 class="h3">Documentos</h2>
-                <p class="p">Clique no documento abaixo para abrir o PDF</p>
+                <p class="p">Clique no botão abaixo para abrir o arquivo PDF</p>
                 <?php
                 // Listar todos os arquivos PDF no diretório de destino
                 foreach ($arquivos as $arquivo) {

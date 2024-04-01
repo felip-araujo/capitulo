@@ -49,29 +49,31 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
                 <p class="p">Acompanhe as Fotos do Capítulo Inspetorial</p>
                 <?php
                 // Listar todos os arquivos JPG no diretório de destino
-                $diretorio_destino = '../files/';
-                $arquivos = scandir($diretorio_destino);
-                foreach ($arquivos as $arquivo) {
-                    if ($arquivo != '.' && $arquivo != '..' && pathinfo($arquivo, PATHINFO_EXTENSION) == 'jpg') {
-                        echo '<img src="' . $diretorio_destino . $arquivo . '" alt="' . $arquivo . '" class="img-thumbnail mb-3">';
-                    }
-                }
-                ?>
+                // $diretorio_destino = '../files/';
+                // $arquivos = scandir($diretorio_destino);
+                // foreach ($arquivos as $arquivo) {
+                //     if ($arquivo != '.' && $arquivo != '..' && pathinfo($arquivo, PATHINFO_EXTENSION) == 'jpg') {
+                //         echo '<img src="' . $diretorio_destino . $arquivo . '" alt="' . $arquivo . '" class="img-thumbnail mb-3">';
+                //     }
+                // }
+                // ?>
             </div>
         </div>
 
         <div class="col-md-6">
-            <div class="area">
+            <div class="area"> 
                 <h2 class="h3">Documentos</h2>
                 <p class="p">Clique no documento abaixo para abrir o PDF</p>
-                <?php
-                // Listar todos os arquivos PDF no diretório de destino
-                foreach ($arquivos as $arquivo) {
-                    if ($arquivo != '.' && $arquivo != '..' && pathinfo($arquivo, PATHINFO_EXTENSION) == 'pdf') {
-                        echo '<a href="' . $diretorio_destino . $arquivo . '" class="btn btn-primary mb-3 ">' . $arquivo . '</a><br>';
-                    }
-                }
-                ?>
+                <?= include 'delete-pdf.php'?>
+                <?php 
+                
+                // // Listar todos os arquivos PDF no diretório de destino
+                // foreach ($arquivos as $arquivo) {
+                //     if ($arquivo != '.' && $arquivo != '..' && pathinfo($arquivo, PATHINFO_EXTENSION) == 'pdf') {
+                //         echo '<a href="' . $diretorio_destino . $arquivo . '" class="btn btn-primary mb-3 ">' . $arquivo . '</a><br>';
+                //     }
+                // }
+                // ?>
             </div>
         </div>
     </div>
