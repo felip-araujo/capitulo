@@ -162,3 +162,8 @@ h1 span {
     transition: all ease-in-out .2s;
     
 }    
+
+.btn.btn-outline-dark {
+    margin-top: .5rem; 
+    margin-bottom: 1rem;
+}

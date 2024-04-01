@@ -63,8 +63,8 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
         <div class="col-md-6">
             <div class="area"> 
                 <h2 class="h3">Documentos</h2>
-                <p class="p">Clique no documento abaixo para abrir o PDF</p>
-                <?= include 'delete-pdf.php'?>
+                <p class="p">Visualize ou delete arquivos em PDF</p>
+                <?= include 'delete-pdf.php'?> 
                 <?php 
                 
                 // // Listar todos os arquivos PDF no diretório de destino
