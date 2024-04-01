@@ -3,7 +3,6 @@
 // Iniciar a sessão
 session_start();
 
-
 // Verificar se o usuário está autenticado
 if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
     // Se não estiver autenticado, redirecionar para a página de login 
@@ -26,14 +25,20 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
 </head>
 
 <body>
-    <div class="header2">
-
+    <div class="header">
+        <img class="logo" src="../assets/image/logo_CI21_mini.png" alt="logo-capituo-inspetorial">
         <h1 class="h3">Capítulo Inspetorial 2024</h1>
-        <a class="log" href="logout.php">Sair</a>
+
     </div>
+    <div class="row mt-3">
+        <div class="col-md-7">
+            <div class="alert alert-danger">Caso este seja o seu primeiro login, recomendamos que altere sua senha.</div>
+            <a class="btn btn-outline-dark" href="logout.php">Sair</a>
+            <a class="btn btn-outline-dark" href="alterar-senha.html">Alterar minha senha</a>
+        </div>
 
-
-    <div class="row mt-5">
+    </div>
+    <div class="row mt-2">
         <div class="col-md-6">
             <div class="area">
                 <h2 class="h3">Imagens</h2>

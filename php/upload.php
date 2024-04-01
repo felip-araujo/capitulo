@@ -14,9 +14,9 @@
 <body>
     <div class="area">
         <form action="processar_upload.php" method="post" enctype="multipart/form-data" class="login-container">
-            <label class="form-label" for="imagens">Upload de Imagens (JPEG):</label>
+            <label class="form-label" for="imagens">Upload de Imagens (JPEG - Tamanho Max: 500x500px - 8Mb):</label>
             <input class="form-control" type="file" name="imagens[]" id="imagens" accept="image/jpeg" multiple><br><br>
-            <label class="form-label" for="pdf">Upload de PDF:</label>
+            <label class="form-label" for="pdf">Upload de PDF: (Tamanho Max: 8Mb)</label>
             <input type="file" class="form-control" name="pdf[]" accept="application/pdf"><br><br>
             <input type="submit" value="Enviar Arquivos" class="btn btn-primary">
         </form>

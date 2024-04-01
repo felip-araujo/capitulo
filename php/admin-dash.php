@@ -28,21 +28,22 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
 </head>
 
 <body>
-    <div class="header2">
-
-        <h1 class="h3">Painel Administrativo</h1>
-        <a class="log" href="logout.php">Sair</a>
+    <div class="header">
+        <img class="logo" src="../assets/image/logo_CI21_mini.png" alt="logo-capituo-inspetorial">
+        <h1 class="h3">Painel Admistrativo</h1>
+        <div class="col-md-6"><a class="btn btn-warning" href="logout.php">Sair</a></div>
 
     </div>
 
     <div class="row mt-5">
         <div class="col-md-6">
-            <div class="area"> 
-                <?= include 'upload.php'; include 'processar_upload.php' ?>
+            <div class="area">
+                <?= include 'upload.php';
+                include 'processar_upload.php' ?>
                 <!-- <div class="upload"> <a href="upload.php">
                         <i class="fa-solid fa-upload"><p>Adicionar novos arquivos</p></i> 
                     </a></div> -->
-                <?= include 'delete.php'?>
+                <?= include 'delete.php' ?>
             </div>
             <div class="area">
                 <h2 class="h3">Fotos</h2>
@@ -56,24 +57,26 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
                 //         echo '<img src="' . $diretorio_destino . $arquivo . '" alt="' . $arquivo . '" class="img-thumbnail mb-3">';
                 //     }
                 // }
-                // ?>
+                // 
+                ?>
             </div>
         </div>
 
         <div class="col-md-6">
-            <div class="area"> 
+            <div class="area">
                 <h2 class="h3">Documentos</h2>
                 <p class="p">Visualize ou delete arquivos em PDF</p>
-                <?= include 'delete-pdf.php'?> 
-                <?php 
-                
+                <?= include 'delete-pdf.php' ?>
+                <?php
+
                 // // Listar todos os arquivos PDF no diretório de destino
                 // foreach ($arquivos as $arquivo) {
                 //     if ($arquivo != '.' && $arquivo != '..' && pathinfo($arquivo, PATHINFO_EXTENSION) == 'pdf') {
                 //         echo '<a href="' . $diretorio_destino . $arquivo . '" class="btn btn-primary mb-3 ">' . $arquivo . '</a><br>';
                 //     }
                 // }
-                // ?>
+                // 
+                ?>
             </div>
         </div>
     </div>
