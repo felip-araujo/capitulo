@@ -11,14 +11,18 @@ if (isset($_FILES['imagens']) && is_array($_FILES['imagens']['tmp_name'])) {
         if (move_uploaded_file($imagem_tmp, $imagem_destino)) {
             // echo "Imagem '$imagem_nome' enviada com sucesso!<br>";   
             echo "<script>alert('Imagem \"$imagem_nome\" enviada com sucesso!'); window.location.href = 'admin-dash.php';</script>";
-            exit();
+            // exit();
             // echo "<script>alert(Imagem '$imagem_nome' enviada com sucesso!<br>)</script>";
         } else {
             echo "Erro ao enviar imagem, ou nenhuma imagem selecionada \"$imagem_nome\".<br>";
             echo "<script>window.location.href = 'admin-dash.php';</script>";
         }
     }
-} else {
+} else { 
+    echo 'Nenhuma imagem enviada'; 
+    // echo "<script>alert('Nenhuma imagem enviada! Tamanho máximo 8Mb')</script>"; 
+    // echo "<script>window.location.href = 'admin-dash.php';</script>";
+
 }
 
 // Processar upload de PDFs
