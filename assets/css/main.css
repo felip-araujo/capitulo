@@ -178,4 +178,17 @@ h1 span {
     text-align: center;
     align-self: center;
     justify-content: center;
+} 
+
+.form-control.password {
+    padding: .5rem; 
+    height: 100%;
+    
+} 
+
+.btn.btn-outline-dark.toggle-password {
+    
+    height: 100%;
+    padding: .5rem; 
+    margin-top: -.1rem;
 }
