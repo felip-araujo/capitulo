@@ -32,12 +32,12 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
     </div>
     <div class="row mt-3">
         <div class="col-md-7">
-            <div class="alert alert-danger">Caso este seja o seu primeiro login, recomendamos que altere sua senha.</div>
+            <div class="alert alert-warning">Caso este seja o seu primeiro login, recomendamos que altere sua senha.</div>
             <a class="btn btn-outline-dark" href="logout.php">Sair</a>
             <a class="btn btn-outline-dark" href="alterar-senha.html">Alterar minha senha</a>
         </div>
-
     </div>
+
     <div class="row mt-2">
         <div class="col-md-6">
             <div class="area">

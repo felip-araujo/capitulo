@@ -31,8 +31,14 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
     <div class="header">
         <img class="logo" src="../assets/image/logo_CI21_mini.png" alt="logo-capituo-inspetorial">
         <h1 class="h3">Painel Admistrativo</h1>
-        <div class="col-md-6"><a class="btn btn-warning" href="logout.php">Sair</a></div>
 
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-7">
+            <div class="alert alert-danger">Tamanho Máximo 8Mb | Resolução Máxima Fotos 600x600px.</div>
+            <a class="btn btn-outline-dark" href="logout.php">Sair</a>
+            <a class="btn btn-outline-dark" href="alterar-senha.html">Alterar minha senha</a>
+        </div>
     </div>
 
     <div class="row mt-5">
