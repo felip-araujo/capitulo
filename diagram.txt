@@ -1,0 +1,41 @@
+Eventos
+│
+├── Dia_09_Abril
+│   ├── Fotos
+│   │   ├── foto1.jpg
+│   │   ├── foto2.jpg
+│   │   └── ...
+│   └── PDFs
+│       ├── documento1.pdf
+│       ├── documento2.pdf
+│       └── ...
+│
+├── Dia_10_Abril
+│   ├── Fotos
+│   │   ├── foto1.jpg
+│   │   ├── foto2.jpg
+│   │   └── ...
+│   └── PDFs
+│       ├── documento1.pdf
+│       ├── documento2.pdf
+│       └── ...
+│
+├── Dia_11_Abril
+│   ├── Fotos
+│   │   ├── foto1.jpg
+│   │   ├── foto2.jpg
+│   │   └── ...
+│   └── PDFs
+│       ├── documento1.pdf
+│       ├── documento2.pdf
+│       └── ...
+│
+└── Dia_12_Abril
+    ├── Fotos
+    │   ├── foto1.jpg
+    │   ├── foto2.jpg
+    │   └── ...
+    └── PDFs
+        ├── documento1.pdf
+        ├── documento2.pdf
+        └── ...

@@ -32,49 +32,52 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
     </div>
     <div class="row mt-3">
         <div class="col-md-7">
-            <div class="alert alert-warning">Caso este seja o seu primeiro login, recomendamos que altere sua senha.</div>
+            <div class="alert alert-warning">Caso este seja o seu primeiro login, recomendamos que altere sua senha.
+
+            </div>
             <a class="btn btn-outline-dark" href="logout.php">Sair</a>
             <a class="btn btn-outline-dark" href="alterar-senha.html">Alterar minha senha</a>
+
         </div>
     </div>
 
-    <div class="row mt-2">
-        <div class="col-md-6">
-            <div class="area">
-                <h2 class="h3">Imagens</h2>
-                <p class="p">Acompanhe ou baixe das Fotos do Capítulo Inspetorial</p>
-                <?php
-                // Listar todos os arquivos JPG no diretório de destino
-                $diretorio_destino = '../files/';
-                $arquivos = scandir($diretorio_destino);
-                foreach ($arquivos as $arquivo) {
-                    if ($arquivo != '.' && $arquivo != '..' && pathinfo($arquivo, PATHINFO_EXTENSION) == 'jpg') {
-                        echo '<img src="' . $diretorio_destino . $arquivo . '" alt="' . $arquivo . '" class="img-thumbnail mb-3">';
-                        echo '<a href="' . $diretorio_destino . $arquivo . '" download>';
-                        echo '<i class="fas fa-download"></i>';
-                        echo '</a>';
-                    }
-                }
-                ?>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="area">
+                    <div class="alert alert-danger">Material do dia 09/04</div>
+                    <button class="btn btn-outline-dark" href="dash9.php">
+                        <a href="dash9.php"><i class="fa-solid fa-folder"></i></a>
+                    </button>
+                </div>
             </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="area">
-                <h2 class="h3">Documentos</h2>
-                <p class="p">Clique no botão abaixo para abrir o arquivo PDF</p>
-                <?php
-                // Listar todos os arquivos PDF no diretório de destino
-                foreach ($arquivos as $arquivo) {
-                    if ($arquivo != '.' && $arquivo != '..' && pathinfo($arquivo, PATHINFO_EXTENSION) == 'pdf') {
-                        echo '<a href="' . $diretorio_destino . $arquivo . '" class="btn btn-primary mb-3 ">' . $arquivo . '</a><br>';
-                    }
-                }
-                ?>
+            <div class="col-sm">
+                <div class="area">
+                    <div class="alert alert-danger">Material do dia 10/04</div>
+                    <button class="btn btn-outline-dark">
+                        <i class="fa-solid fa-folder"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="area">
+                    <div class="alert alert-danger">Material do dia 11/04</div>
+                    <button class="btn btn-outline-dark">
+                        <i class="fa-solid fa-folder"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="area">
+                    <div class="alert alert-danger">Material do dia 12/04</div>
+                    <button class="btn btn-outline-dark">
+                        <i class="fa-solid fa-folder"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
+
 
 
 
