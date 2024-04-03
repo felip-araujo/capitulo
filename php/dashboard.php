@@ -36,6 +36,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
 
             </div>
             <a class="btn btn-outline-dark" href="logout.php">Sair</a>
+            <a class="btn btn-outline-dark" href="dashvotos.php">Votações</a>
             <a class="btn btn-outline-dark" href="alterar-senha.html">Alterar minha senha</a>
 
         </div>
