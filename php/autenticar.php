@@ -3,7 +3,8 @@
 // Iniciar a sessão
 session_start();
 
-require 'conexao.php';
+require 'conexao.php'; 
+
 
 if (isset($_POST['enviar']))
     $email = $_POST['email'];
@@ -13,6 +14,7 @@ $qr = $pdo->prepare('SELECT * FROM usuarios WHERE email = :email');
 $qr->execute(['email' => $email]);
 $usuario = $qr->fetch(PDO::FETCH_ASSOC);
 
+// echo ($usuario['id']);
 
 if ($email === 'admin@isma.org.br' && $usuario && $usuario['senha'] === $senha) {
     $_SESSION['autenticado'] = true;
@@ -21,8 +23,10 @@ if ($email === 'admin@isma.org.br' && $usuario && $usuario['senha'] === $senha) 
 } else {
     if ($usuario && $usuario['senha'] === $senha) {
         // Autenticação bem-sucedida, definir variável de sessão
-        $_SESSION['autenticado'] = true;
-        // Redirecionar para a página do dashboard 
+        $_SESSION['autenticado'] = true;  
+        $_SESSION['usuario_id'] = $usuario['id']; 
+
+        // Redirecionar para a página do dashboard  
         header('Location: dashboard.php'); // Ajuste o caminho para o dashboard
         exit;
     } else {

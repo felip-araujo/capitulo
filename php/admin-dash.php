@@ -52,18 +52,8 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
                 <?= include 'delete.php' ?>
             </div>
             <div class="area">
-                <h2 class="h3">Fotos</h2>
-                <p class="p">Acompanhe as Fotos do Capítulo Inspetorial</p>
                 <?php
-                // Listar todos os arquivos JPG no diretório de destino
-                // $diretorio_destino = '../files/';
-                // $arquivos = scandir($diretorio_destino);
-                // foreach ($arquivos as $arquivo) {
-                //     if ($arquivo != '.' && $arquivo != '..' && pathinfo($arquivo, PATHINFO_EXTENSION) == 'jpg') {
-                //         echo '<img src="' . $diretorio_destino . $arquivo . '" alt="' . $arquivo . '" class="img-thumbnail mb-3">';
-                //     }
-                // }
-                // 
+                    require 'novo-topico.php';
                 ?>
             </div>
         </div>
