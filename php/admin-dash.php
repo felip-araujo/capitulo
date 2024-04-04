@@ -44,12 +44,12 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
     <div class="row mt-5">
         <div class="col-md-6">
             <div class="area">
-                <?= include 'upload.php';
+                <?php include 'upload.php';
                 include 'processar_upload.php' ?>
                 <!-- <div class="upload"> <a href="upload.php">
                         <i class="fa-solid fa-upload"><p>Adicionar novos arquivos</p></i> 
                     </a></div> -->
-                <?= include 'delete.php' ?>
+                <?php include 'delete.php' ?>
             </div>
             <div class="area">
                 <?php
@@ -62,7 +62,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
             <div class="area">
                 <h2 class="h3">Documentos</h2>
                 <p class="p">Visualize ou delete arquivos em PDF</p>
-                <?= include 'delete-pdf.php' ?>
+                <?php include 'delete-pdf.php' ?>
                 <?php
 
                 // // Listar todos os arquivos PDF no diretório de destino
