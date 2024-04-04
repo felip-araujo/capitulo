@@ -21,7 +21,8 @@
             <div class="col-md-6 mb-3">
                 <a class="btn btn-outline-dark" href="dashboard.php">Voltar</a>
             </div>
-            <div class="col-md-6 mb-3 text-md-end">
+            <div class="col-md-6 mb-3 text-md-end"> 
+                <a href="voto_delegado.php" class="btn btn-outline-dark">Delegado CG29</a>
                 <a class="btn btn-outline-dark me-2" href="alterar-senha.html">Alterar minha senha</a>
                 <a href="" class="btn btn-outline-dark" onclick="window.print()">Imprimir Resultados</a>
             </div>
