@@ -97,8 +97,7 @@ if (isset($_POST['enviar'])) {
                 <button type="submit" class="btn btn-primary" name="enviar">Enviar Voto</button>
             </form>
         </div>
-        <br></br>
-        <?php require 'resultado_delegado.php'; ?>
+        
 </body>
 
 </html>

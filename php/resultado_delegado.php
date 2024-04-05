@@ -1,4 +1,7 @@
+
 <?php
+
+include 'conexao.php';
 // Consulta SQL para obter os resultados da votação
 $sql = "SELECT 
             u.nome AS usuario,
