@@ -1,17 +1,39 @@
 <?php
-
-// Iniciar a sessão
 session_start();
-
-// Verificar se o usuário está autenticado
 if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
-    // Se não estiver autenticado, redirecionar para a página de login 
     echo "<script>alert('Usuário não autenticado!')</script>";
     echo "<script>window.location.href = '../index.html';</script>";
     exit;
 }
 
+$dia_evento = isset($_GET['dia_evento']) ? $_GET['dia_evento'] : '';
+$conteudo_imagens = '';
+$conteudo_pdfs = '';
+
+// Prepara o conteúdo das imagens e PDFs, caso um dia tenha sido selecionado
+if ($dia_evento != '') {
+    $diretorio_imagem = "../files/$dia_evento/image/";
+    $diretorio_pdf = "../files/$dia_evento/pdf/";
+
+    // Imagens
+    $arquivos_imagem = scandir($diretorio_imagem);
+    foreach ($arquivos_imagem as $arquivo) {
+        if ($arquivo != '.' && $arquivo != '..' && strtolower(pathinfo($arquivo, PATHINFO_EXTENSION)) == 'jpg') {
+            $conteudo_imagens .= '<img src="' . $diretorio_imagem . $arquivo . '" alt="' . $arquivo . '" class="img-thumbnail mb-3">';
+            $conteudo_imagens .= '<a href="' . $diretorio_imagem . $arquivo . '" download><i class="fas fa-download"></i></a>';
+        }
+    }
+
+    // PDFs
+    $arquivos_pdf = scandir($diretorio_pdf);
+    foreach ($arquivos_pdf as $arquivo) {
+        if ($arquivo != '.' && $arquivo != '..' && strtolower(pathinfo($arquivo, PATHINFO_EXTENSION)) == 'pdf') {
+            $conteudo_pdfs .= '<a href="' . $diretorio_pdf . $arquivo . '" class="btn btn-primary mb-3">' . $arquivo . '</a><br>';
+        }
+    }
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -43,41 +65,41 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
     </div>
 
     <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <div class="area">
-                    <div class="alert alert-danger">Material do dia 09/04</div>
-                    <button class="btn btn-outline-dark" href="dash9.php">
-                        <a href="dash9.php"><i class="fa-solid fa-folder"></i></a>
-                    </button>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="area">
-                    <div class="alert alert-danger">Material do dia 10/04</div>
-                    <button class="btn btn-outline-dark">
-                        <i class="fa-solid fa-folder"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="area">
-                    <div class="alert alert-danger">Material do dia 11/04</div>
-                    <button class="btn btn-outline-dark">
-                        <i class="fa-solid fa-folder"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="area">
-                    <div class="alert alert-danger">Material do dia 12/04</div>
-                    <button class="btn btn-outline-dark">
-                        <i class="fa-solid fa-folder"></i>
-                    </button>
-                </div>
+        <div class="col-sm">
+            <div class="area">
+                <form method="get" action="dashboard.php">
+                    <select name="dia_evento" onchange="this.form.submit()" class="form-control">
+                        <option value="">Selecione um Dia</option>
+                        <option value="9">Dia 9</option>
+                        <option value="10">Dia 10</option>
+                        <option value="11">Dia 11</option>
+                        <option value="12">Dia 12</option>
+                    </select>
+                </form>
+
             </div>
         </div>
     </div>
+    <!-- Outros elementos HTML -->
+
+    <div class="container">
+        <!-- Seção de Imagens -->
+        <div class="col-sm">
+            <div class="area">
+                <h3 class="alert alert-success">Imagens do dia <?php echo $dia_evento  . '/04' ?> </h3>
+                <?php echo $conteudo_imagens; ?>
+            </div>
+        </div>
+
+        <!-- Seção de PDFs -->
+        <div class="area" style="text-align: center;">
+                    <h3 class="alert alert-success">Documentos do dia <?php echo $dia_evento  . '/04' ?> </h3>
+                <?php echo $conteudo_pdfs; ?>
+        </div>
+    </div>
+
+    <!-- Outros elementos HTML -->
+
 
 
 

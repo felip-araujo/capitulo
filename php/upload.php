@@ -14,10 +14,23 @@
 <body>
     <div class="area">
         <form action="processar_upload.php" method="post" enctype="multipart/form-data" class="login-container">
-            <label class="form-label" for="imagens">Upload de Imagens (JPEG - Tamanho Max: 500x500px - 8Mb):</label>
-            <input class="form-control" type="file" name="imagens[]" id="imagens" accept="image/jpeg" multiple><br><br>
-            <label class="form-label" for="pdf">Upload de PDF: (Tamanho Max: 8Mb)</label>
-            <input type="file" class="form-control" name="pdf[]" accept="application/pdf"><br><br>
+            <div class="mb-3">
+                <label for="dia_evento" class="form-label">Selecione o dia do evento:</label>
+                <select name="dia_evento" id="dia_evento" class="form-select">
+                    <option value="9">Dia 9</option>
+                    <option value="10">Dia 10</option>
+                    <option value="11">Dia 11</option>
+                    <option value="12">Dia 12</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="imagens">Upload de Imagens (JPEG - Tamanho Max: 500x500px - 8Mb):</label>
+                <input class="form-control" type="file" name="imagens[]" id="imagens" accept="image/jpeg" multiple>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="pdf">Upload de PDF: (Tamanho Max: 8Mb)</label>
+                <input type="file" class="form-control" name="pdf[]" id="pdf" accept="application/pdf" multiple>
+            </div>
             <input type="submit" value="Enviar Arquivos" class="btn btn-primary">
         </form>
     </div>
