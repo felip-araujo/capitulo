@@ -3,7 +3,7 @@
 // Iniciar a sessão
 session_start();
 
-require 'conexao.php'; 
+require 'conexao.php';
 
 
 if (isset($_POST['enviar']))
@@ -23,8 +23,8 @@ if ($email === 'admin@isma.org.br' && $usuario && $usuario['senha'] === $senha) 
 } else {
     if ($usuario && $usuario['senha'] === $senha) {
         // Autenticação bem-sucedida, definir variável de sessão
-        $_SESSION['autenticado'] = true;  
-        $_SESSION['usuario_id'] = $usuario['id']; 
+        $_SESSION['autenticado'] = true;
+        $_SESSION['usuario_id'] = $usuario['id'];
 
         // Redirecionar para a página do dashboard  
         header('Location: dashboard.php'); // Ajuste o caminho para o dashboard

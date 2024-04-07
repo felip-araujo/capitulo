@@ -1,61 +1,80 @@
 <?php
 
-// Diretório onde as imagens estão armazenadas
-$diretorio_destino = '../files/';
+$dia_evento = isset($_GET['dia_evento']) ? $_GET['dia_evento'] : '';
+$mensagem = ''; // Inicializa a variável de mensagem
 
-// Verifica se o formulário foi submetido e se um arquivo foi selecionado para exclusão
-if (isset($_POST['arquivo'])) {
-    // Obtém o nome do arquivo a ser excluído
-    $arquivo = $_POST['arquivo'];
-
-    // Verifica se o arquivo existe no diretório
-    if (file_exists($diretorio_destino . $arquivo)) {
-        // Exclui o arquivo
-        unlink($diretorio_destino . $arquivo);
-        echo "Arquivo '$arquivo' excluído com sucesso.";
+// Verifica se o formulário de exclusão foi submetido
+if (isset($_POST['arquivo']) && isset($_POST['tipo'])) {
+    $arquivo_para_deletar = '../files/' . $_POST['dia_evento'] . '/' . $_POST['tipo'] . '/' . $_POST['arquivo'];
+    if (file_exists($arquivo_para_deletar)) {
+        unlink($arquivo_para_deletar);
+        $mensagem = "<div class='alert alert-success' role='alert'>Arquivo '{$_POST['arquivo']}' excluído com sucesso.</div>";
     } else {
-        echo "O arquivo '$arquivo' não foi encontrado.";
+        $mensagem = "<div class='alert alert-danger' role='alert'>O arquivo '{$_POST['arquivo']}' não foi encontrado.</div>";
+    }
+}
+
+function listarArquivos($diretorio, $extensao, $dia_evento) {
+    $arquivos = scandir($diretorio);
+    foreach ($arquivos as $arquivo) {
+        if ($arquivo != '.' && $arquivo != '..' && strtolower(pathinfo($arquivo, PATHINFO_EXTENSION)) == $extensao) {
+            echo '<div class="mb-2">';
+            if ($extensao == 'jpg') {
+                echo '<img src="' . $diretorio . $arquivo . '" alt="' . $arquivo . '" class="img-thumbnail" style="width: 100px; height: auto;">';
+            } else {
+                echo '<a href="' . $diretorio . $arquivo . '" class="me-2">' . $arquivo . '</a>';
+            }
+            echo '<form method="post" class="d-inline">';
+            echo '<input type="hidden" name="arquivo" value="' . $arquivo . '">';
+            echo '<input type="hidden" name="tipo" value="' . pathinfo($diretorio, PATHINFO_BASENAME) . '">';
+            echo '<input type="hidden" name="dia_evento" value="' . $dia_evento . '">';
+            echo '<button type="submit" class="btn btn-danger btn-sm">Deletar</button>';
+            echo '</form>';
+            echo '</div>';
+        }
     }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deletar Imagem</title>
+    <title>Deletar Arquivo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
+    <div class="container mt-4">
+        <?php if ($mensagem != '') echo $mensagem; ?>
+        
+        <form method="get" action="">
+            <select name="dia_evento" onchange="this.form.submit()" class="form-select mb-4">
+                <option value="">Selecione um Dia</option>
+                <option value="9" <?php if ($dia_evento == "9") echo "selected"; ?>>Dia 9</option>
+                <option value="10" <?php if ($dia_evento == "10") echo "selected"; ?>>Dia 10</option>
+                <option value="11" <?php if ($dia_evento == "11") echo "selected"; ?>>Dia 11</option>
+                <option value="12" <?php if ($dia_evento == "12") echo "selected"; ?>>Dia 12</option>
+            </select>
+        </form>
 
-    <?php
-    // Listar todos os arquivos JPG no diretório de destino
-    $arquivos = scandir($diretorio_destino);
-    foreach ($arquivos as $arquivo) {
-        if ($arquivo != '.' && $arquivo != '..' && pathinfo($arquivo, PATHINFO_EXTENSION) == 'jpg') {
-            // Exibe a imagem
-            echo '<div>';
-            echo '<img src="' . $diretorio_destino . $arquivo . '" alt="' . $arquivo . '" class="img-thumbnail mb-3">';
+        <?php
+        if ($dia_evento != '') {
+            echo "<div class='row'>";
+            echo "<div class='col-md-6'>";
+            echo "<h2>Imagens</h2>";
+            listarArquivos("../files/$dia_evento/image/", 'jpg', $dia_evento);
+            echo "</div>";
 
-            // Adiciona o formulário para deletar a imagem (apenas se o usuário for um administrador)
-            echo '<form method="post">';
-            echo '<input type="hidden" name="arquivo" value="' . $arquivo . '"> ';
-            echo '<button type="submit" class=" btn btn-danger">Deletar</button>';
-            echo '</form>';
-
-            echo '</div>';
+            echo "<div class='col-md-6'>";
+            echo "<h2>Documentos</h2>";
+            listarArquivos("../files/$dia_evento/pdf/", 'pdf', $dia_evento);
+            echo "</div>";
+            echo "</div>";
         }
-    }
-    ?>
+        ?>
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
-<!-- CSS do Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- JavaScript do Bootstrap (opcional, mas necessário para funcionalidades como dropdowns, modals, etc.) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </html>

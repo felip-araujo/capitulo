@@ -11,9 +11,6 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
     echo "<script>window.location.href = '../index.html';</script>";
     exit;
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -48,6 +45,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
     <div class="row mt-5">
         <div class="col-md-6">
             <div class="area">
+            <p class="alert alert-warning">Upload de arquivos (Selecione um dia)</p>
                 <?php include 'upload.php' ?>
             </div>
             <div class="area">
@@ -59,18 +57,8 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
 
         <div class="col-md-6">
             <div class="area">
-                <h2 class="h3">Documentos</h2>
-                <p class="p">Visualize ou delete arquivos em PDF</p>
-                <?php include 'delete-pdf.php' ?>
-                <?php
-
-                // // Listar todos os arquivos PDF no diretório de destino
-                // foreach ($arquivos as $arquivo) {
-                //     if ($arquivo != '.' && $arquivo != '..' && pathinfo($arquivo, PATHINFO_EXTENSION) == 'pdf') {
-                //         echo '<a href="' . $diretorio_destino . $arquivo . '" class="btn btn-primary mb-3 ">' . $arquivo . '</a><br>';
-                //     }
-                // }
-                // 
+                <p class="alert alert-warning">Exclusão de arquivos (Selecione um dia)</p>
+                <?php include 'delete.php' ?>
                 ?>
             </div>
         </div>

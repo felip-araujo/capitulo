@@ -93,8 +93,8 @@ if ($dia_evento != '') {
 
         <!-- Seção de PDFs -->
         <div class="area" style="text-align: center;">
-                    <h3 class="alert alert-success">Documentos do dia <?php echo $dia_evento  . '/04' ?> </h3>
-                <?php echo $conteudo_pdfs; ?>
+            <h3 class="alert alert-success">Documentos do dia <?php echo $dia_evento  . '/04' ?> </h3>
+            <?php echo $conteudo_pdfs; ?>
         </div>
     </div>
 
