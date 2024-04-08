@@ -39,6 +39,7 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
             <a class="btn btn-outline-dark" href="dados-votacao.php">Resultados Detalhados</a>
             <a class="btn btn-outline-dark" href="resultado_delegado.php">Resultados Votacao Delegado CG29</a>
             <a class="btn btn-outline-dark" href="observacao.php">Observacoes</a>
+            <a class="btn btn-outline-dark" href="gerenciar_usuario.php">Cadastro e Edição de Usuarios</a>
         </div>
     </div>
 
