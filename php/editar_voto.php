@@ -41,7 +41,8 @@ if (isset($_GET['id'])) {
 </head>
 <body>
 
-<div class="btn btn-outline-dark"><a href="listar-votos.php">Voltar</a></div>
+
+
 <div class="container mt-5">
     <?php if (!empty($mensagem)): ?>
         <div class="alert alert-info"><?= $mensagem; ?></div>
@@ -53,7 +54,10 @@ if (isset($_GET['id'])) {
             <textarea class="form-control" id="observacao" name="observacao" rows="3"><?= htmlspecialchars($voto['observacao']) ?></textarea>
         </div>
         <button type="submit" name="salvar" class="btn btn-primary">Salvar</button>
-    </form>
+    </form> 
+    <br> <div class="btn btn-secondary">
+           <a href="admin-dash.php" style="list-style: none; text-decoration:none;color:#eee;margin-top:.5rem;">Voltar</a>
+        </div>
 </div>
 </body>
 </html>
