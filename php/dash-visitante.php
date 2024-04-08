@@ -58,7 +58,6 @@ if ($dia_evento != '') {
 
             </div>
             <a class="btn btn-outline-dark" href="logout.php">Sair</a>
-            <a class="btn btn-outline-dark" href="dashvotos.php">Votações</a>
             <a class="btn btn-outline-dark" href="alterar-senha.html">Alterar minha senha</a>
 
         </div>
@@ -66,9 +65,9 @@ if ($dia_evento != '') {
 
     <div class="container">
         <div class="col-sm">
-        <div class="area"> 
+            <div class="area"> 
             <div class="alert alert-warning"> Selecione um dia para exbir o conteúdo (Fotos e Documentos)</div>
-                <form method="get" action="dashboard.php">
+                <form method="get" action="dash-visitante.php">
                     <select name="dia_evento" onchange="this.form.submit()" class="form-control">
                         <option value="">Selecione um dia (Ex: 09-04-2024 )</option>
                         <option value="9">09-04-2024</option>
