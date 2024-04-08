@@ -5,8 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/main.css">
     <title>Alterar senha</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/min.css">
+
 </head>
 
 <body>
@@ -15,52 +20,79 @@
         <h1 class="h3">Capítulo Inspetorial 2024</h1>
     </div>
 
-    <div class="row mt-3">
-        <div class="col-md-7">
-            <div class="alert alert-warning">Preencha o formulário abaixo para redefinir sua senha.</div>
-            <a class="btn btn-outline-dark" href="dashboard.php">Voltar</a>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form action="alterar-senha.php" method="post">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Seu E-mail Institucional:</label>
+                    <input type="email" class="form-control" name="email" id="email" required
+                        placeholder="Digite o seu e-mail">
+                </div>
+                <!-- Parte do formulário, apenas o trecho dos campos de senha para brevidade -->
+                <div class="mb-3">
+                    <label for="senha-antiga" class="form-label">Sua senha antiga:</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" name="senha-antiga" id="senha-antiga"
+                            placeholder="Digite sua antiga senha" required>
+                        <button class="btn btn-outline-secondary toggle-password" type="button"
+                            data-password-target="#senha-antiga">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="senha-nova" class="form-label">Crie uma nova senha:</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" name="nova-senha" id="nova-senha"
+                            placeholder="Digite sua nova senha" required>
+                        <button class="btn btn-outline-secondary toggle-password" type="button"
+                            data-password-target="#nova-senha">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="confirme-senha" class="form-label">Confirme a nova senha:</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" name="confirme-senha" id="confirme-senha"
+                            placeholder="Confirme sua nova senha" required>
+                        <button class="btn btn-outline-secondary toggle-password" type="button"
+                            data-password-target="#confirme-senha">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit" name="enviar">Enviar</button>
+            </form>
+            <div class="mt-3">
+                <a class="btn btn-outline-secondary" href="dashboard.php">Voltar</a>
+            </div>
         </div>
     </div>
-    <div class="container" style="width: 55rem; margin-top: 8vh;">
-        <form action="alterar-senha.php" class="login-container" method="post">
-            <div class="form-group">
-                <label for="email" class="form-label">Seu E-mail Institucional:</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Digite o seu e-mail">
-                <label for="senha-antiga" class="form-label">Sua senha antiga:</label>
-                <div class="input-group">
-                    <input type="password" class="form-control" name="senha-antiga" id="senha-antiga" placeholder="Digite sua antiga senha">
-                    <button class="btn btn-outline-secondary toggle-password" type="button" id="toggleAntiga">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                </div>
-                <label for="senha-nova" class="form-label">Crie uma nova senha:</label>
-                <div class="input-group">
-                    <input type="password" class="form-control" name="nova-senha" id="nova-senha" placeholder="Digite sua nova senha">
-                    <button class="btn btn-outline-secondary toggle-password" type="button" id="toggleNova">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                </div>
-                <label for="confirme-senha" class="form-label">Confirme a nova senha:</label>
-                <div class="input-group">
-                    <input type="password" class="form-control" name="confirme-senha" id="confirme-senha" placeholder="Confirme sua nova senha">
-                    <button class="btn btn-outline-secondary toggle-password" type="button" id="toggleConfirme">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                </div>
-                <button class="btn btn-primary" type="submit" name="enviar" style="width: 100%; align-self: center;">Enviar</button>
-            </div>
-        </form>
     </div>
+
+    <!-- JavaScript do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Seu script main.js -->
+
+    <script>
+        document.querySelectorAll('.toggle-password').forEach(button => {
+            button.addEventListener('click', () => {
+                const passwordInput = document.querySelector(button.getAttribute('data-password-target'));
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    button.innerHTML = '<i class="fas fa-eye-slash"></i>';
+                } else {
+                    passwordInput.type = 'password';
+                    button.innerHTML = '<i class="fas fa-eye"></i>';
+                }
+            });
+        });
+        </script>
+        
+
+    <script src="../assets/js/main.js"></script>
 </body>
 
-<!-- CSS do Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Font Awesome -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
-<!-- JavaScript do Bootstrap (opcional, mas necessário para funcionalidades como dropdowns, modals, etc.) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="../assets/js/main.js"></script>
 </html>
