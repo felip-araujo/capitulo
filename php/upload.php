@@ -28,9 +28,10 @@
                 <input class="form-control" type="file" name="imagens[]" id="imagens" accept="image/jpeg" multiple>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="pdf">Upload de PDF: (Tamanho Max: 8Mb)</label>
-                <input type="file" class="form-control" name="pdf[]" id="pdf" accept="application/pdf" multiple>
+                <label class="form-label" for="documentos">Upload de Documentos: (PDF/Word - Tamanho Max: 8Mb)</label>
+                <input type="file" class="form-control" name="documentos[]" id="documentos" accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document" multiple>
             </div>
+
             <input type="submit" value="Enviar Arquivos" class="btn btn-primary">
         </form>
     </div>

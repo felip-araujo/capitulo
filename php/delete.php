@@ -1,9 +1,8 @@
 <?php
 
 $dia_evento = isset($_GET['dia_evento']) ? $_GET['dia_evento'] : '';
-$mensagem = ''; // Inicializa a variável de mensagem
+$mensagem = '';
 
-// Verifica se o formulário de exclusão foi submetido
 if (isset($_POST['arquivo']) && isset($_POST['tipo'])) {
     $arquivo_para_deletar = '../files/' . $_POST['dia_evento'] . '/' . $_POST['tipo'] . '/' . $_POST['arquivo'];
     if (file_exists($arquivo_para_deletar)) {
@@ -14,12 +13,13 @@ if (isset($_POST['arquivo']) && isset($_POST['tipo'])) {
     }
 }
 
-function listarArquivos($diretorio, $extensao, $dia_evento) {
+function listarArquivos($diretorio, $extensoes, $dia_evento) {
     $arquivos = scandir($diretorio);
     foreach ($arquivos as $arquivo) {
-        if ($arquivo != '.' && $arquivo != '..' && strtolower(pathinfo($arquivo, PATHINFO_EXTENSION)) == $extensao) {
+        $extensao_arquivo = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
+        if ($arquivo != '.' && $arquivo != '..' && in_array($extensao_arquivo, $extensoes)) {
             echo '<div class="mb-2">';
-            if ($extensao == 'jpg') {
+            if (in_array($extensao_arquivo, ['jpg'])) {
                 echo '<img src="' . $diretorio . $arquivo . '" alt="' . $arquivo . '" class="img-thumbnail" style="width: 100px; height: auto;">';
             } else {
                 echo '<a href="' . $diretorio . $arquivo . '" class="me-2">' . $arquivo . '</a>';
@@ -63,12 +63,13 @@ function listarArquivos($diretorio, $extensao, $dia_evento) {
             echo "<div class='row'>";
             echo "<div class='col-md-6'>";
             echo "<h2>Imagens</h2>";
-            listarArquivos("../files/$dia_evento/image/", 'jpg', $dia_evento);
+            listarArquivos("../files/$dia_evento/image/", ['jpg'], $dia_evento);
             echo "</div>";
 
             echo "<div class='col-md-6'>";
             echo "<h2>Documentos</h2>";
-            listarArquivos("../files/$dia_evento/pdf/", 'pdf', $dia_evento);
+            listarArquivos("../files/$dia_evento/pdf/", ['pdf'], $dia_evento);
+            listarArquivos("../files/$dia_evento/word/", ['docx', 'doc'], $dia_evento); // Corrigido para incluir Word
             echo "</div>";
             echo "</div>";
         }

@@ -1,44 +1,8 @@
+
 <?php
 
-// Verificar se o dia do evento foi selecionado
-if (isset($_POST['dia_evento'])) {
-    $dia_evento = $_POST['dia_evento'];
-    $diretorio_base = '../files/' . $dia_evento . '/'; // Ajustar o caminho base conforme a estrutura real
-
-    // Processar upload de imagens
-    processarUploads($diretorio_base . 'image/', 'imagens');
-
-    // Processar upload de PDFs
-    processarUploads($diretorio_base . 'pdf/', 'pdf');
-} else {
-    echo "Dia do evento não selecionado.";
-}
-
-function processarUploads($diretorio_destino, $tipo_arquivo) {
-    if (isset($_FILES[$tipo_arquivo]) && is_array($_FILES[$tipo_arquivo]['tmp_name'])) {
-        foreach ($_FILES[$tipo_arquivo]['tmp_name'] as $key => $tmp_name) {
-            // Tratamento de erro para uploads de PDF
-            if ($tipo_arquivo === 'pdf' && $_FILES[$tipo_arquivo]['error'][$key] !== UPLOAD_ERR_OK) {
-                tratarErroUpload($_FILES[$tipo_arquivo]['error'][$key]);
-                continue; // Pular para a próxima iteração
-            }
-
-            $nome_arquivo = $_FILES[$tipo_arquivo]['name'][$key];
-            $arquivo_tmp = $_FILES[$tipo_arquivo]['tmp_name'][$key];
-            $arquivo_destino = $diretorio_destino . $nome_arquivo;
-
-            if (move_uploaded_file($arquivo_tmp, $arquivo_destino)) {
-                echo "<script>alert('Arquivo \"$nome_arquivo\" enviado com sucesso!'); window.location.href = 'admin-dash.php';</script>";
-            } else {
-                echo "Erro ao enviar arquivo \"$nome_arquivo\".<br>";
-            }
-        }
-    } else {
-        echo "Nenhum $tipo_arquivo selecionado para upload.<br>";
-    }
-}
-
-function tratarErroUpload($codigo_erro) {
+function tratarErroUpload($codigo_erro)
+{
     switch ($codigo_erro) {
         case UPLOAD_ERR_INI_SIZE:
             echo "O arquivo enviado excede a diretiva upload_max_filesize em php.ini.<br>";
@@ -63,7 +27,67 @@ function tratarErroUpload($codigo_erro) {
             break;
         default:
             echo "Erro desconhecido.<br>";
-            break;
+            break; 
     }
 }
+
+// Verificar se o dia do evento foi selecionado
+if (isset($_POST['dia_evento'])) {
+    $dia_evento = $_POST['dia_evento'];
+    $diretorio_base = '../files/' . $dia_evento . '/';
+
+    // Processar upload de imagens
+    processarUploads($diretorio_base, 'imagens');
+
+    // Processar upload de documentos (Word e PDF)
+    processarUploads($diretorio_base, 'documentos');
+} else {
+    echo "Dia do evento não selecionado.";
+}
+
+function processarUploads($diretorio_base, $tipo_arquivo)
+{
+    if (isset($_FILES[$tipo_arquivo]) && is_array($_FILES[$tipo_arquivo]['tmp_name'])) {
+        foreach ($_FILES[$tipo_arquivo]['tmp_name'] as $key => $tmp_name) {
+            if ($_FILES[$tipo_arquivo]['error'][$key] !== UPLOAD_ERR_OK) {
+                tratarErroUpload($_FILES[$tipo_arquivo]['error'][$key]);
+                continue; // Pular para a próxima iteração
+            }
+
+            $nome_arquivo = $_FILES[$tipo_arquivo]['name'][$key];
+            $extensao = strtolower(pathinfo($nome_arquivo, PATHINFO_EXTENSION));
+            $arquivo_tmp = $_FILES[$tipo_arquivo]['tmp_name'][$key];
+            $destino = $diretorio_base;
+
+            // Especifica o diretório de destino com base na extensão do arquivo
+            if ($tipo_arquivo === 'imagens' && in_array($extensao, ['jpg', 'jpeg', 'png'])) {
+                $destino .= 'image/';
+            } elseif ($tipo_arquivo === 'documentos' && in_array($extensao, ['doc', 'docx', 'pdf'])) {
+                if (in_array($extensao, ['doc', 'docx'])) {
+                    $destino .= 'word/';
+                } elseif ($extensao == 'pdf') {
+                    $destino .= 'pdf/';
+                }
+            } else {
+                echo "Tipo de arquivo não suportado: $nome_arquivo<br>";
+                continue; // Pular arquivos que não são imagem, Word ou PDF
+            }
+
+            $arquivo_destino = $destino . $nome_arquivo;
+
+            // Tenta mover o arquivo carregado para o diretório de destino
+            if (move_uploaded_file($arquivo_tmp, $arquivo_destino)) {
+                echo "<script>alert('Arquivo \"$nome_arquivo\" enviado com sucesso!');</script>";
+            } else {
+                echo "Erro ao enviar arquivo \"$nome_arquivo\".<br>";
+            }
+        }
+    } else {
+        echo "Nenhum arquivo selecionado para upload.<br>";
+    }
+}
+
+// ... Resto do código ...
+
+
 ?>

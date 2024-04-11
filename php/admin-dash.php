@@ -35,11 +35,12 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
             <div class="alert alert-danger">Tamanho Máximo 8Mb | Resolução Máxima Fotos 600x600px.</div>
             <a class="btn btn-outline-dark" href="logout.php">Sair</a>
             <a class="btn btn-outline-dark" href="listar-votos.php">Listagem de votos</a>
-            <a class="btn btn-outline-dark" href="resultado-votacao.php">Resultados Votacao</a>
+            <a class="btn btn-outline-dark" href="resultado-primeiro-turno.php">Resultados 1ª Turno</a>
             <a class="btn btn-outline-dark" href="dados-votacao.php">Resultados Detalhados</a>
             <a class="btn btn-outline-dark" href="resultado_delegado.php">Resultados Votacao Delegado CG29</a>
             <a class="btn btn-outline-dark" href="observacao.php">Observacoes</a>
             <a class="btn btn-outline-dark" href="gerenciar_usuario.php">Cadastro e Edição de Usuarios</a>
+            <a class="btn btn-outline-dark" href="encerrar_turno.php">Encerrar Turno</a>
         </div>
     </div>
 
